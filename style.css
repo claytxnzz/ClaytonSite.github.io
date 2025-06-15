@@ -1,99 +1,103 @@
-:root {
-    --primary: #2c3e50;
-    --accent: #3498db;
-    --light: #f4f4f4;
-    --dark: #333;
+/* Fonts and general appearance */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom, #f4f4f4, #e0e0e0);
+  color: var(--dark);
+  scroll-behavior: smooth;
+  line-height: 1.7;
+}
+
+/* Add a subtle shadow and animation to sections */
+section {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Navigation glow on hover */
+nav a {
+  position: relative;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -3px;
+  left: 0;
+  background-color: var(--accent);
+  transition: width 0.3s ease-in-out;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* Smooth fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
   }
-  
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  body {
-    font-family: 'Segoe UI', sans-serif;
-    background-color: var(--light);
-    color: var(--dark);
-    scroll-behavior: smooth;
-    line-height: 1.6;
-  }
-  
-  nav {
-    background-color: var(--primary);
-    padding: 1rem;
-    text-align: center;
-  }
-  
-  nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 15px;
-    font-weight: bold;
-    font-size: 1.1em;
-    transition: 0.3s;
-  }
-  
-  nav a:hover {
-    color: var(--accent);
-  }
-  
-  section {
-    padding: 40px 20px;
-    max-width: 1000px;
-    margin: auto;
-  }
-  
-  h1, h2 {
-    color: var(--primary);
-    margin-bottom: 20px;
-  }
-  
-  .about-container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 20px;
-  }
-  
-  .profile-pic {
-    width: 200px;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  .about-text {
-    flex: 1;
-    min-width: 250px;
-  }
-  
-  .resume ul,
-  .resume p {
-    margin-bottom: 10px;
-  }
-  
-  footer {
-    margin-top: 2rem;
-    background-color: var(--primary);
-    color: white;
-    text-align: center;
-    padding: 1rem;
-  }
-  
-  a {
-    color: var(--accent);
-  }
-  
-  /* Responsive for smaller screens */
-  @media (max-width: 600px) {
-    .about-container {
-      flex-direction: column;
-      text-align: center;
-    }
-  
-    .profile-pic {
-      margin-bottom: 15px;
-    }
-  }
-  
+}
+
+/* About Me: Add gradient glow behind the profile pic */
+.profile-pic {
+  width: 200px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15), 0 0 15px rgba(52, 152, 219, 0.3);
+  transition: transform 0.3s;
+}
+
+.profile-pic:hover {
+  transform: scale(1.05);
+}
+
+/* Section headers */
+h1, h2 {
+  color: var(--primary);
+  margin-bottom: 20px;
+  position: relative;
+}
+
+h1::after, h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--accent);
+  margin-top: 5px;
+  border-radius: 5px;
+}
+
+/* Video cards look cleaner */
+.video-section {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+  transition: transform 0.3s ease;
+}
+
+.video-section:hover {
+  transform: translateY(-5px);
+}
+
+/* Contact info */
+#contact a {
+  text-decoration: underline;
+  transition: color 0.3s;
+}
+
+#contact a:hover {
+  color: var(--primary);
+}
